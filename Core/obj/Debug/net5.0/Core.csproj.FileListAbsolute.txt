@@ -1,0 +1,12 @@
+C:\Users\ofo\Desktop\Desktop\Software\projects\CSharp\CarRental\Core\bin\Debug\net5.0\Core.deps.json
+C:\Users\ofo\Desktop\Desktop\Software\projects\CSharp\CarRental\Core\bin\Debug\net5.0\Core.dll
+C:\Users\ofo\Desktop\Desktop\Software\projects\CSharp\CarRental\Core\bin\Debug\net5.0\ref\Core.dll
+C:\Users\ofo\Desktop\Desktop\Software\projects\CSharp\CarRental\Core\bin\Debug\net5.0\Core.pdb
+C:\Users\ofo\Desktop\Desktop\Software\projects\CSharp\CarRental\Core\obj\Debug\net5.0\Core.csproj.AssemblyReference.cache
+C:\Users\ofo\Desktop\Desktop\Software\projects\CSharp\CarRental\Core\obj\Debug\net5.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ofo\Desktop\Desktop\Software\projects\CSharp\CarRental\Core\obj\Debug\net5.0\Core.AssemblyInfoInputs.cache
+C:\Users\ofo\Desktop\Desktop\Software\projects\CSharp\CarRental\Core\obj\Debug\net5.0\Core.AssemblyInfo.cs
+C:\Users\ofo\Desktop\Desktop\Software\projects\CSharp\CarRental\Core\obj\Debug\net5.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\ofo\Desktop\Desktop\Software\projects\CSharp\CarRental\Core\obj\Debug\net5.0\Core.dll
+C:\Users\ofo\Desktop\Desktop\Software\projects\CSharp\CarRental\Core\obj\Debug\net5.0\ref\Core.dll
+C:\Users\ofo\Desktop\Desktop\Software\projects\CSharp\CarRental\Core\obj\Debug\net5.0\Core.pdb

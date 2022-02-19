@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -17,6 +15,25 @@ namespace Business.Concrete
         {
             _carDal = carDal;
         }
+
+        public void Add(Car entity)
+        {
+            if (entity.CarName.Length < 2)
+            {
+                Console.WriteLine("Araç ismi minimum 2 karakter olmalıdır.");
+            }else if (entity.DailyPrice <=0)
+            {
+                Console.WriteLine("Araç günlük fiyatı 0'dan büyük olmalıdır");
+            }
+
+            _carDal.Add(entity);
+        }
+
+        public void Delete(Car entity)
+        {
+            _carDal.Delete(entity);
+        }
+
         public List<Car> GetAll()
         {
             return _carDal.GetAll();
@@ -35,6 +52,16 @@ namespace Business.Concrete
         public List<Car> GetByUnitPrice(int min, int max)
         {
             return _carDal.GetAll(c => c.DailyPrice >= min && c.DailyPrice <= max);
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            return _carDal.GetCarDetails();
+        }
+
+        public void Update(Car entity)
+        {
+            _carDal.Update(entity);
         }
     }
 }

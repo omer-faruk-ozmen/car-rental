@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Entities.Concrete;
+﻿using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.EntityFramework
@@ -18,5 +13,12 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Car> Cars { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Color> Colors { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Car>().ToTable("Cars","dbo");
+
+            modelBuilder.Entity<Car>().Property(c => c.Id).HasColumnName("Id");
+        }
     }
 }
