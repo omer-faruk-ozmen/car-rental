@@ -4,7 +4,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    class EfColorDal : EfEntityRepositoryBase<Color, SqlServerContext>, IColorDal
+    public class EfColorDal : EfEntityRepositoryBase<Color, SqlServerContext>, IColorDal
     {
 
     }

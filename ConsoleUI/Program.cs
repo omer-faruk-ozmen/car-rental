@@ -9,7 +9,29 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarTest();
+            //CarTest();
+
+
+            Console.WriteLine("-----------------GetAllColorName-----------------");
+            ColorManager colorManager = new ColorManager(new EfColorDal());
+            foreach (var color in colorManager.GetAll())
+            {
+                Console.WriteLine(color.ColorName);
+            }
+
+            Console.WriteLine("-----------------GetByIdColorName-----------------");
+            Console.WriteLine(colorManager.GetById(id: 1).ColorName);
+
+            //Console.WriteLine("-----------------DeleteColor-----------------");
+            //colorManager.Delete(new Color { ColorId = 3 });
+
+            Console.WriteLine("-----------------AddColor-----------------");
+            colorManager.Add(new Color { ColorName = "Green" });
+
+
+
+
+
         }
 
         private static void CarTest()
