@@ -10,77 +10,83 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             //CarTest();
+            //BrandTest();
+            //ColorTest();
 
-
-            Console.WriteLine("-----------------GetAllColorName-----------------");
-            ColorManager colorManager = new ColorManager(new EfColorDal());
-            foreach (var color in colorManager.GetAll())
-            {
-                Console.WriteLine(color.ColorName);
-            }
-
-            Console.WriteLine("-----------------GetByIdColorName-----------------");
-            Console.WriteLine(colorManager.GetById(id: 1).ColorName);
-
-            //Console.WriteLine("-----------------DeleteColor-----------------");
-            //colorManager.Delete(new Color { ColorId = 3 });
-
-            Console.WriteLine("-----------------AddColor-----------------");
-            colorManager.Add(new Color { ColorName = "Green" });
-
-
-
-
-
+            //UserTest();
+            //CustomerTest();
+            RentalTest();
         }
 
         private static void CarTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
 
-            foreach (var car in carManager.GetAll())
+            var result = carManager.GetAll();
+
+            if (result.Success == true)
             {
-                Console.WriteLine(car.CarName);
+                Console.WriteLine(result.Message);
+                foreach (var car in result.Data)
+                {
+
+                    Console.WriteLine(car.CarName);
+                }
             }
-
-            Console.WriteLine("-----------------GetAllByBrandId-----------------");
-
-            foreach (var car in carManager.GetAllByBrandId(id: 1))
+            else
             {
-                Console.WriteLine(car.CarName);
+                Console.WriteLine(result.Message);
             }
+        }
 
-            Console.WriteLine("-----------------GetAllByColorId-----------------");
-
-            foreach (var car in carManager.GetAllByColorId(id: 1))
+        private static void BrandTest()
+        {
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
+            var result = brandManager.GetAll();
+            if (result.Success == true)
             {
-                Console.WriteLine(car.Description);
+                Console.WriteLine(result.Message);
+                foreach (var brand in result.Data)
+                {
+                    Console.WriteLine(brand.BrandName);
+                }
             }
+        }
 
-            Console.WriteLine("-----------------GetByUnitPrice-----------------");
-            foreach (var car in carManager.GetByUnitPrice(min: 100, max: 180))
+        private static void ColorTest()
+        {
+            ColorManager colorManager = new ColorManager(new EfColorDal());
+            var result = colorManager.GetAll();
+            if (result.Success == true)
             {
-                Console.WriteLine(car.Description);
+                Console.WriteLine(result.Message);
+                foreach (var color in result.Data)
+                {
+                    Console.WriteLine(color.ColorName);
+                }
             }
+        }
 
-            /*
-            carManager.Add(new Car
-            {
-                BrandId = 2, CarName = "skoda",
-                ColorId = 1,
-                DailyPrice = 120,
-                Description = "skoda araç",
-                ModelYear = 2016
-            });
-            */
+        private static void UserTest()
+        {
+            UserManager userManager = new UserManager(new EfUserDal());
+            var result = userManager.Add(new User
+            { FirstName = "Ömer Faruk", LastName = "Özmen", Email = "omerfarukozmen0@gmail.com", Password = "12345" });
+            Console.WriteLine(result.Message);
+        }
 
-            carManager.Delete(new Car
-            {
-                Id = 12
-            });
+        private static void CustomerTest()
+        {
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            var result = customerManager.Add(new Customer { CompanyName = "Avis", UserId = 1 });
+            Console.WriteLine(result.Message);
+        }
 
-            Console.WriteLine("-----------------GetCarDetails-----------------");
-            carManager.GetCarDetails();
+        private static void RentalTest()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            var result = rentalManager.Add(new Rental { CarId = 1, CustomerId = 1, RentDate = new DateTime(2022, 2, 20) });
+            Console.WriteLine(result.Message);
         }
     }
 }
