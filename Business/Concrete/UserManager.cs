@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Business.Abstract;
 using Business.Constants;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 
@@ -11,9 +12,9 @@ namespace Business.Concrete
 {
     public class UserManager : IUserService
     {
-        private EfUserDal _userDal;
+        private IUserDal _userDal;
 
-        public UserManager(EfUserDal userDal)
+        public UserManager(IUserDal userDal)
         {
             _userDal = userDal;
         }

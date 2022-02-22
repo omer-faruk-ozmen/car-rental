@@ -22,6 +22,9 @@ namespace DataAccess.Concrete.EntityFramework
             modelBuilder.Entity<Car>().ToTable("Cars","dbo");
 
             modelBuilder.Entity<Car>().Property(c => c.Id).HasColumnName("Id");
+
+            modelBuilder.Entity<Rental>().Property(r => r.RentDate).HasColumnType("datetime2");
+            modelBuilder.Entity<Rental>().Property(r => r.ReturnDate).HasColumnType("datetime2");
         }
     }
 }

@@ -85,8 +85,9 @@ namespace ConsoleUI
         private static void RentalTest()
         {
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            var result = rentalManager.Add(new Rental { CarId = 1, CustomerId = 1, RentDate = new DateTime(2022, 2, 20) });
+            var result = rentalManager.Add(new Rental { CarId = 3, CustomerId = 1, RentDate = new DateTime(2022, 2, 20)});
             Console.WriteLine(result.Message);
+       
         }
     }
 }
