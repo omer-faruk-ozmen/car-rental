@@ -12,15 +12,12 @@ namespace Core.Utilities.Helpers.FileHelper
 {
     public class FileHelperManager : IFileHelper
     {
-        public IResult Delete(string filePath)
+        public void Delete(string filePath)
         {
             if (File.Exists(filePath))
             {
                 File.Delete(filePath);
-                return new SuccessResult();
             }
-
-            return new ErrorResult();
         }
 
         public string Update(IFormFile file, string filePath, string root)
@@ -29,10 +26,7 @@ namespace Core.Utilities.Helpers.FileHelper
             {
                 File.Delete(filePath);
             }
-
-
             return Upload(file, root);
-
         }
 
         public string Upload(IFormFile file, string root)
@@ -55,7 +49,6 @@ namespace Core.Utilities.Helpers.FileHelper
                     return filePath;
                 }
             }
-
             return null;
         }
     }

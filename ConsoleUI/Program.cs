@@ -2,6 +2,7 @@
 using System;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using Core.Entities.Concrete;
 
 namespace ConsoleUI
 {
@@ -15,7 +16,7 @@ namespace ConsoleUI
 
             //UserTest();
             //CustomerTest();
-            RentalTest();
+            //RentalTest();
         }
 
         private static void CarTest()
@@ -67,13 +68,6 @@ namespace ConsoleUI
             }
         }
 
-        private static void UserTest()
-        {
-            UserManager userManager = new UserManager(new EfUserDal());
-            var result = userManager.Add(new User
-            { FirstName = "Ömer Faruk", LastName = "Özmen", Email = "omerfarukozmen0@gmail.com", Password = "12345" });
-            Console.WriteLine(result.Message);
-        }
 
         private static void CustomerTest()
         {

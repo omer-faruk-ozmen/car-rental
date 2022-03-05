@@ -21,6 +21,7 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
+
         public IResult Add(Color color)
         {
             _colorDal.Add(color);

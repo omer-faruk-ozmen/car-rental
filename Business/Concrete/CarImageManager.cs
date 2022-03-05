@@ -23,8 +23,8 @@ namespace Business.Concrete
 
         public CarImageManager(ICarImageDal carImageDal, IFileHelper fileHelper)
         {
-            _fileHelper = fileHelper;
             _carImageDal = carImageDal;
+            _fileHelper = fileHelper;
         }
 
         public IResult Add(IFormFile file, CarImage carImage)
@@ -35,7 +35,6 @@ namespace Business.Concrete
                 return result;
             }
             carImage.ImagePath = _fileHelper.Upload(file, ImagePathFixed.ImagesPath);
-            carImage.DateTime = DateTime.Now;
             _carImageDal.Add(carImage);
             return new SuccessResult();
         }
