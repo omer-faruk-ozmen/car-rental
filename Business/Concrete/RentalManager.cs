@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Business.Abstract;
 using Business.Constants;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 
@@ -13,15 +14,17 @@ namespace Business.Concrete
 {
     public class RentalManager : IRentalService
     {
-        private EfRentalDal _rentalDal;
+        private IRentalDal _rentalDal;
 
-        public RentalManager(EfRentalDal rentalDal)
+        public RentalManager(IRentalDal rentalDal)
         {
             _rentalDal = rentalDal;
         }
 
         public IResult Add(Rental rental)
         {
+            rental.RentDate = DateTime.Now;
+
             var returnDateControl = _rentalDal.GetAll(r => r.CarId == rental.CarId);
             if (returnDateControl.Count > 0)
             {
