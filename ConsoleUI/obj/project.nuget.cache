@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Vd7FqbPzB3T7F2ePQV2tOOnxAdDtGRMKn1kEZAAar4Feq6XSIqiXeBIgTBYCQ8dg5IbJVJQuHCDaKQnpVPtOYg==",
+  "dgSpecHash": "Ovyy5joNdKrg3RrH/Ip6GTShegLwcBVmjnZCh690yiKy59lrnaeiB3Msist2YoVQ+aaHnQe0TkYWuyBgZmHkBQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ofo\\Desktop\\Desktop\\Software\\projects\\CSharp\\CarRental\\ConsoleUI\\ConsoleUI.csproj",
   "expectedPackageFiles": [
@@ -146,7 +146,8 @@
     "C:\\Users\\ofo\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\ofo\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\ofo\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\ofo\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\ofo\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\ofo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.15\\microsoft.netcore.app.host.win-x64.5.0.15.nupkg.sha512"
   ],
   "logs": []
 }
