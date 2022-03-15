@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Business.Abstract;
 using Business.BusinessAspects.Autofac;
 using Business.Constants;
@@ -75,10 +76,21 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.DailyPrice >= min && c.DailyPrice <= max),
                 Messages.GetByUnitPriceFiltered);
         }
+
+        public IDataResult<CarDetailDto> GetCarDetailById(int id)
+        {
+            return new SuccessDataResult<CarDetailDto>(_carDal.GetCarDetails(c => c.Id == id).FirstOrDefault());
+        }
+
         [CacheAspect(60)]
-        public IDataResult<List<CarDetailDto>> GetCarDetails()
+        public IDataResult<List<CarDetailDto>> GetCarDetails(int id)
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), Messages.AllCarDetails);
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetails()
+        {
+            throw new NotImplementedException();
         }
 
         public IResult Update(Car car)
