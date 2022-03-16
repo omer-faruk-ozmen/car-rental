@@ -15,7 +15,7 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(c => c.BrandId).NotEmpty();
             RuleFor(c => c.ColorId).NotEmpty();
             RuleFor(c => c.CarName).NotEmpty();
-            RuleFor(c => c.Description).Length(20, 250);
+            RuleFor(c => c.Description).Length(20, 250).WithMessage("Araç açıklaması en az 20 karakter olmalıdır.");
         }
         
     }
