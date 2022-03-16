@@ -49,7 +49,7 @@ namespace Business.Concrete
         [CacheAspect(60)]
         public IDataResult<List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour == 11)
+            if (DateTime.Now.Hour == 9)
             {
                 return new ErrorDataResult<List<Car>>(Messages.WarningHour);
             }
