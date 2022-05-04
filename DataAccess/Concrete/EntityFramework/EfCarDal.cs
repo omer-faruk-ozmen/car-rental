@@ -32,7 +32,8 @@ namespace DataAccess.Concrete.EntityFramework
                         CarName = c.CarName,
                         ColorName = cl.ColorName,
                         DailyPrice = c.DailyPrice,
-                        Description = c.Description
+                        Description = c.Description,
+                        Images = (from image in context.CarImages where c.Id == image.CarId select new CarImageDetailDto{ImagePath = image.ImagePath}).ToList()
                     };
                 return filter == null ? result.ToList() : result.Where(filter).ToList();
 

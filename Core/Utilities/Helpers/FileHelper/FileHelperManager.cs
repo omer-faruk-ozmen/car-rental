@@ -39,7 +39,7 @@ namespace Core.Utilities.Helpers.FileHelper
                 }
 
                 string fileExtension = Path.GetExtension(file.FileName);
-                string guid = GuidHelperManager.CreateGuid();
+                string guid = GuidHelperManager.CreateGuid().ToString();
                 string filePath = guid + fileExtension;
 
                 using (FileStream fileStream = File.Create(root + filePath))

@@ -9,6 +9,6 @@ namespace Business.Constants
 {
     public class ImagePathFixed
     {
-        public static string ImagesPath = "root\\Uploads\\CarImages\\";
+        public static string ImagesPath = "wwwroot/Uploads/Images/";
     }
 }

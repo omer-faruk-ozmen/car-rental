@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Business.Abstract;
-using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Adpects.Autofac.Validation;
@@ -46,21 +45,21 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarDeleted);
         }
 
-        [CacheAspect(60)]
+        [CacheAspect(duration: 60)]
         public IDataResult<List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour == 9)
+            if (DateTime.Now.Hour == 8)
             {
                 return new ErrorDataResult<List<Car>>(Messages.WarningHour);
             }
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.ListedCars);
         }
-        [CacheAspect(60)]
+        [CacheAspect(duration: 60)]
         public IDataResult<List<Car>> GetAllByBrandId(int id)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == id), Messages.AllBrandIdFilter);
         }
-        [CacheAspect(60)]
+        [CacheAspect(duration: 60)]
         public IDataResult<List<Car>> GetAllByColorId(int id)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id), Messages.AllColorIdFilter);
@@ -82,15 +81,10 @@ namespace Business.Concrete
             return new SuccessDataResult<CarDetailDto>(_carDal.GetCarDetails(c => c.Id == id).FirstOrDefault());
         }
 
-        [CacheAspect(60)]
-        public IDataResult<List<CarDetailDto>> GetCarDetails(int id)
-        {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), Messages.AllCarDetails);
-        }
-
+        [CacheAspect(duration: 60)]
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(), Messages.AllCarDetails);
         }
 
         public IResult Update(Car car)
